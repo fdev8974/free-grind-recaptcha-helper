@@ -9,7 +9,7 @@ The APK has no native libraries, so one universal APK runs on every device.
 Clone repository:
 
 ```bash
-git clone https://github.com/fdev8974/free-grind--recaptcha-helper.git
+git clone https://github.com/fdev8974/free-grind-recaptcha-helper.git
 ```
 
 ## Build with Docker (easiest, Linux x86_64 only)

@@ -8,7 +8,7 @@ Requires Android >= 9, Google Play services and the Grindr app installed. Tokens
 
 The add-on depends on Google's proprietary [reCAPTCHA Enterprise SDK](https://cloud.google.com/recaptcha/docs/instrument-android-apps) (`com.google.android.recaptcha:recaptcha`).
 
-[**Download from Releases**](https://github.com/fdev8974/free-grind--recaptcha-helper/releases)
+[**Download from Releases**](https://github.com/fdev8974/free-grind-recaptcha-helper/releases)
 
 Free Grind and this helper only talk to each other when both are signed with the same key (Free Grind's release keystore, see [BUILDING.md](./BUILDING.md#signing)).
 
