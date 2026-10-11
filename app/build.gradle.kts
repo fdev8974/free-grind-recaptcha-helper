@@ -21,14 +21,14 @@ val keystoreProperties = System.getenv("RECAPTCHA_HELPER_KEYSTORE_PROPERTIES")
     }
 
 android {
-    namespace = "org.opengrind.recaptcha"
+    namespace = "dev.estopia.free_grind.recaptcha"
     compileSdk {
         version = release(36)
     }
     buildToolsVersion = "36.0.0"
 
     defaultConfig {
-        applicationId = "org.opengrind.recaptcha"
+        applicationId = "dev.estopia.free_grind.recaptcha"
         minSdk = 28
         targetSdk = 36
         versionCode = 1001000

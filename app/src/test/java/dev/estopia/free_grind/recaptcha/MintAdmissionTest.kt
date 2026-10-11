@@ -1,4 +1,4 @@
-package org.opengrind.recaptcha
+package dev.estopia.free_grind.recaptcha
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.fail

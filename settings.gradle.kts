@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Open Grind reCAPTCHA helper"
+rootProject.name = "Free Grind reCAPTCHA helper"
 include(":app")

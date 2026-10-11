@@ -1,5 +1,5 @@
 {
-  description = "Open Grind reCAPTCHA helper Android add-on — declarative build toolchain";
+  description = "Free Grind reCAPTCHA helper Android add-on — declarative build toolchain";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -118,7 +118,7 @@
               shellHook = ''
                 export PATH="${buildToolsBin}:$PATH"
 
-                echo "Open Grind reCAPTCHA helper dev shell: Android toolchain pinned via Nix."
+                echo "Free Grind reCAPTCHA helper dev shell: Android toolchain pinned via Nix."
                 echo "  JDK: $JAVA_HOME"
                 echo "  SDK: $ANDROID_HOME"
               '';

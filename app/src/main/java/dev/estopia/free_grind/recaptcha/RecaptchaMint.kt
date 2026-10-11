@@ -1,4 +1,4 @@
-package org.opengrind.recaptcha
+package dev.estopia.free_grind.recaptcha
 
 import android.app.Application
 import com.google.android.gms.tasks.Task

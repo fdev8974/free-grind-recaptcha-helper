@@ -9,7 +9,7 @@ The APK has no native libraries, so one universal APK runs on every device.
 Clone repository:
 
 ```bash
-git clone https://git.opengrind.org/open-grind/recaptcha-helper.git
+git clone https://github.com/fdev8974/free-grind--recaptcha-helper.git
 ```
 
 ## Build with Docker (easiest, Linux x86_64 only)
@@ -55,27 +55,32 @@ Unit tests:
 
 ## Signing
 
-Must be the same keystore used for Open Grind releases, so that Open Grind recognizes the helper by its signature. Create it with the [keytool recipe](https://git.opengrind.org/open-grind/open-grind/src/branch/main/BUILDING.md#sign-android-build), then copy [contrib/keystore.properties.example](./contrib/keystore.properties.example).
+Free Grind and this helper trust each other only when both are signed with the same key:
+
+- The helper answers only Free Grind builds whose certificate SHA-256 is listed in `SIGNING_CERTS_SHA256` in [FreeGrindTrust.kt](./app/src/main/java/dev/estopia/free_grind/recaptcha/FreeGrindTrust.kt): the GitHub Actions release key and the local `src-tauri/certs/free-grind-dev.jks`.
+- Free Grind uses only a `dev.estopia.free_grind.recaptcha` install whose signature matches its own.
+
+So sign the helper with the keystore that signed the Free Grind build you use. Copy [contrib/keystore.properties.example](./contrib/keystore.properties.example) and point it at that keystore:
 
 ```bash
-RECAPTCHA_HELPER_KEYSTORE_PROPERTIES=/home/you/.config/open-grind/keystore.properties \
+RECAPTCHA_HELPER_KEYSTORE_PROPERTIES=/home/you/.config/free-grind/keystore.properties \
   nix run .#build-android
 ```
 
 ## Publishing a release
 
-Tag `vX.Y.Z` matching `versionName` in `app/build.gradle.kts`, then run inside `nix develop`:
+Every push to `main` runs [release-main.yml](./.github/workflows/release-main.yml): it runs the unit tests, builds and signs the APK, checks the certificate with `contrib/sign-release.sh` and publishes a release tagged `main-<sha>`. The repository needs these secrets:
 
-```bash
-contrib/sign-release.sh vX.Y.Z [artifacts-dir]
-# -> app/build/outputs/release/vX.Y.Z/open-grind-recaptcha-helper-vX.Y.Z-android.apk (+ .minisig)
-```
-
-Upload every file from that directory to the release.
+- `ANDROID_KEYSTORE_BASE64`: the same value as in the free-grind repository
+- `ANDROID_KEYSTORE_PASSWORD` (optional): only needed if the keystore password is not `opengrind`, the one Free Grind's `app/build.gradle.kts` uses
 
 ## Verifying a release
 
-Follow [Open Grind's § Verify minisign signature](https://git.opengrind.org/open-grind/open-grind/src/branch/main/BUILDING.md#verify-minisign-signature).
+```bash
+apksigner verify --print-certs free-grind-recaptcha-helper-<tag>-android.apk
+```
+
+The certificate SHA-256 must be `7ce9e5cdac620ec798bea6749aed4c6d59bf12ab5e1dc8cb59c117bb929fc9d0`.
 
 ## Reproducibility
 

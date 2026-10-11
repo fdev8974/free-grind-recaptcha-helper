@@ -1,4 +1,4 @@
-package org.opengrind.recaptcha
+package dev.estopia.free_grind.recaptcha
 
 import android.app.Activity
 import android.content.Intent
@@ -39,7 +39,7 @@ class MintTokenActivity : Activity() {
     }
 
     private fun isCallerTrusted(): Boolean =
-        OpenGrindTrust.trusts(callingPackage) { name, sha256 ->
+        FreeGrindTrust.trusts(callingPackage) { name, sha256 ->
             packageManager.hasSigningCertificate(
                 name,
                 sha256,

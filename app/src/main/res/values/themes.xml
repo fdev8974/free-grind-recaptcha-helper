@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.OpenGrindRecaptchaHelper" parent="@android:style/Theme.Translucent.NoTitleBar">
+    <style name="Theme.FreeGrindRecaptchaHelper" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 </resources>

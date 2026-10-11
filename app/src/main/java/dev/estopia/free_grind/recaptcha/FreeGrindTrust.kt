@@ -1,11 +1,13 @@
-package org.opengrind.recaptcha
+package dev.estopia.free_grind.recaptcha
 
-object OpenGrindTrust {
+object FreeGrindTrust {
     const val PACKAGE = MintContract.TRUSTED_CALLER_PACKAGE
 
     val SIGNING_CERTS_SHA256 = setOf(
-        "2805FDD8F0BADB9424D3244C5E5B3473CEF5B8798EC1117382E89EDA45C3658C",
-        "90F4BB85C1F2FA2A7810A1076A60D20E791720C0EE88FDB88F9E4BA32CA8702E",
+        // Release builds, signed by GitHub Actions (ANDROID_KEYSTORE_BASE64)
+        "7CE9E5CDAC620EC798BEA6749AED4C6D59BF12AB5E1DC8CB59C117BB929FC9D0",
+        // Local builds, signed by src-tauri/certs/free-grind-dev.jks
+        "7EAEC68446F1C2E14D2749807CD63629319C4E59015A16A408A6BD668B7FE48E",
     )
 
     fun interface SigningCertificates {

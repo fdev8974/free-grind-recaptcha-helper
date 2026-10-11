@@ -1,4 +1,4 @@
-package org.opengrind.recaptcha
+package dev.estopia.free_grind.recaptcha
 
 enum class MintError(val marker: String) {
     UNTRUSTED_CALLER("untrusted-caller"),
